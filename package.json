@@ -1,0 +1,90 @@
+{
+  "name": "s-pos",
+  "version": "1.0.0",
+  "description": "Kapsamlı Masaüstü Stok & Sipariş Takip Uygulaması",
+  "main": "electron/main.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "dev": "nodemon app.js",
+    "build": "vite build",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && cross-env NODE_ENV=development electron .\"",
+    "electron-pack": "electron-builder",
+    "dist": "npm run build && electron-builder"
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "stok",
+    "siparis",
+    "barkod",
+    "kafe",
+    "market"
+  ],
+  "author": "System",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^27.1.3",
+    "electron-builder": "^24.6.4",
+    "nodemon": "^3.1.10",
+    "postcss": "^8.5.6",
+    "prisma": "^6.11.1",
+    "tailwindcss": "^3.4.17",
+    "vite": "^5.0.8",
+    "wait-on": "^7.2.0"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.4",
+    "@nhost/nhost-js": "^3.3.0",
+    "@nhost/react": "^3.11.1",
+    "@prisma/client": "^6.11.1",
+    "@supabase/supabase-js": "^2.50.3",
+    "axios": "^1.6.2",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^2.4.3",
+    "clsx": "^2.0.0",
+    "cors": "^2.8.5",
+    "events": "^3.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.294.0",
+    "pocketbase": "^0.26.1",
+    "pouchdb-browser": "^9.0.0",
+    "pouchdb-find": "^9.0.0",
+    "qrcode": "^1.5.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.20.1",
+    "sqlite3": "^5.1.6",
+    "tailwind-merge": "^2.0.0",
+    "vite-plugin-node-polyfills": "^0.23.0"
+  },
+  "build": {
+    "appId": "com.s-pos.app",
+    "productName": "S-POS",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns"
+    }
+  }
+}
+ 
