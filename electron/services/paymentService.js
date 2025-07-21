@@ -4,14 +4,10 @@ const crypto = require('crypto');
 class PaymentService {
   constructor() {
     // İyzico API bilgileri (test ortamı)
-    this.apiKey = 'sandbox-afXhZPW0MQlE4dCUUlHcEopnMBgXnAZI';
-    this.secretKey = 'sandbox-wbwpzKJDmlGqJxlE4dCUUlHcEopnMBgXnAZI';
-    this.baseUrl = 'https://sandbox-api.iyzipay.com';
-    
-    // Production için bu değerleri değiştirin
-    // this.apiKey = 'your-production-api-key';
-    // this.secretKey = 'your-production-secret-key';
-    // this.baseUrl = 'https://api.iyzipay.com';
+    this.apiKey = process.env.IYZIPAY_API_KEY;
+    this.secretKey = process.env.IYZIPAY_SECRET_KEY;
+    this.baseUrl = process.env.IYZIPAY_BASE_URL || 'https://sandbox-api.iyzipay.com';
+    // Production için .env'de değerleri değiştirin
   }
 
   async processPayment(paymentData) {
